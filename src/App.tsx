@@ -1,8 +1,17 @@
 import stylex from '@stylexjs/stylex';
 import { globalTokens as $, text } from './styles/globalTokens.stylex';
+import ModalProvider from './context/modalContext';
+import { GalleryPage } from './Pages/Gallery/GalleryPage';
 
 function App() {
-  return <main {...stylex.props(styles.main)}>aaa</main>;
+  return (
+    <ModalProvider>
+      <main {...stylex.props(styles.main)}>
+        <GalleryPage />
+      </main>
+      ;
+    </ModalProvider>
+  );
 }
 
 export default App;
