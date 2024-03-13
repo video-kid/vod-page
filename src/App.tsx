@@ -1,35 +1,31 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import stylex from '@stylexjs/stylex';
+import { globalTokens as $, text } from './styles/globalTokens.stylex';
 
 function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+  return <main {...stylex.props(styles.main)}>aaa</main>;
 }
 
-export default App
+export default App;
+
+const DARK_MODE = '@media (prefers-color-scheme: dark)' as const;
+const MEDIA_MOBILE = '@media (max-width: 700px)' as const;
+
+const styles = stylex.create({
+  main: {
+    minWidth: $.minWidth,
+    maxWidth: $.maxWidth,
+    fontSize: {
+      default: text.p,
+      [MEDIA_MOBILE]: text.sm,
+    },
+    border: '1px solid black',
+    backgroundColor: {
+      default: '#ffffff',
+      [DARK_MODE]: '#000000',
+    },
+    color: {
+      default: '#000000',
+      [DARK_MODE]: '#ffffff',
+    },
+  },
+});
