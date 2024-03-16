@@ -1,3 +1,5 @@
+import stylex from '@stylexjs/stylex';
+
 import { useState } from 'react';
 import clip from '../../assets/pigeon.mp4';
 import cover from '../../assets/pigeon.png';
@@ -30,7 +32,8 @@ const Video = () => {
           (e.target as HTMLVideoElement).currentTime
         );
       }}
-      onSeeked={(e) => console.log('seeking event end', e)}>
+      onSeeked={(e) => console.log('seeking event end', e)}
+      {...stylex.props(styles.video)}>
       <source
         src={clip}
         type='video/mp4'
@@ -45,3 +48,7 @@ const Video = () => {
 };
 
 export default Video;
+
+const styles = stylex.create({
+  video: {},
+});

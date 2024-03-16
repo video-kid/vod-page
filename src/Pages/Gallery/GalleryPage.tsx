@@ -1,4 +1,4 @@
-import Thumbnail from '../../Components/Thumbnail/Thumbnail';
+import VideoGallery from '../../Modules/VideoGallery/VideoGallery';
 
 const GalleryPage = () => {
   return (
@@ -6,12 +6,7 @@ const GalleryPage = () => {
       <header>
         <h1>Gallery</h1>
       </header>
-      <main>
-        <Thumbnail
-          title='pigeon'
-          description='pigeon golomp cute baby'
-        />
-      </main>
+      <VideoGallery />
     </div>
   );
 };

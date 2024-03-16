@@ -21,6 +21,8 @@ const MEDIA_MOBILE = '@media (max-width: 700px)' as const;
 
 const styles = stylex.create({
   main: {
+    margin: '0 auto',
+    padding: '2em 3em',
     minWidth: $.minWidth,
     maxWidth: $.maxWidth,
     fontSize: {

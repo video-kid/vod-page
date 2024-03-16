@@ -1,3 +1,5 @@
+import stylex from '@stylexjs/stylex';
+
 import { useContext } from 'react';
 import cover from '../../assets/pigeon.png';
 import { Modal } from '../Modal/Modal';
@@ -22,7 +24,8 @@ const Thumbnail = ({ title, description }: thumbnailProps) => {
             <Video />
           </Modal>
         );
-      }}>
+      }}
+      {...stylex.props(styles.thumbnail)}>
       <picture>
         <source
           srcSet={cover}
@@ -31,6 +34,7 @@ const Thumbnail = ({ title, description }: thumbnailProps) => {
         <img
           src={cover}
           alt='pigeon'
+          {...stylex.props(styles.image)}
         />
       </picture>
       <h5>Pigeon</h5>
@@ -39,3 +43,17 @@ const Thumbnail = ({ title, description }: thumbnailProps) => {
 };
 
 export default Thumbnail;
+
+const styles = stylex.create({
+  thumbnail: {
+    border: 'none',
+    backgroundColor: 'unset',
+    display: 'flex',
+    flexDirection: 'column',
+  },
+  image: {
+    width: '100%',
+    objectFit: 'cover',
+    objectPosition: 'center center',
+  },
+});
