@@ -20,13 +20,14 @@ export const Overlay = ({ children, onClick }: overlayProps) => {
 
 const styles = stylex.create({
   overlay: {
-    position: 'absolute',
+    position: 'fixed',
     zIndex: 1,
     inset: '0',
-    height: 'max(100vh, 100%)',
+    height: '100vh',
     width: '100%',
     display: 'flex',
     alignItems: 'center',
+    justifyContent: 'center',
   },
   background: {
     backgroundColor: '#ffffff',

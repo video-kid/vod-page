@@ -9,7 +9,6 @@ function App() {
       <main {...stylex.props(styles.main)}>
         <GalleryPage />
       </main>
-      ;
     </ModalProvider>
   );
 }

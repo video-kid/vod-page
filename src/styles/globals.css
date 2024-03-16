@@ -9,16 +9,9 @@
 @layer globals {
   html {
     font-size: 10px;
-    position: relative;
     min-height: 100vh;
-    display: flex;
-    align-items: stretch;
   }
   body {
     min-width: 100%;
-  }
-  #root {
-    min-height: 100%;
-    display: flex;
   }
 }
