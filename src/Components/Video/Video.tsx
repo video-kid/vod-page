@@ -3,8 +3,7 @@ import clip from '../../assets/pigeon.mp4';
 import cover from '../../assets/pigeon.png';
 
 const Video = () => {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const [duration, setDuration] = useState<any>(null);
+  const [duration, setDuration] = useState<string | number | null>(null);
   console.log('dur:', duration);
 
   return (

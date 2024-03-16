@@ -1,12 +1,19 @@
+import { ReactNode } from 'react';
 import { removeSpaces } from '../../utils/utils';
+
+type modalProps = {
+  children: ReactNode;
+  title: string;
+  description: string;
+  closingHandler: () => void;
+};
 
 export const Modal = ({
   children,
   title,
   description,
   closingHandler,
-}: // eslint-disable-next-line @typescript-eslint/no-explicit-any
-any) => {
+}: modalProps) => {
   return (
     <div
       aria-labelledby={removeSpaces(title)}

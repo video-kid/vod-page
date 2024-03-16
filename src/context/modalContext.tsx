@@ -1,14 +1,25 @@
-import { createContext, useState } from 'react';
+import { ReactNode, createContext, useState } from 'react';
 import { Overlay } from '../Components/Overlay/Overlay';
 
-export const ModalContext = createContext<unknown>(null);
+export type modalContextProps = {
+  showModal: (content: ReactNode) => void;
+  closeModal: () => void;
+};
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const ModalProvider = ({ children }: any) => {
-  const [modalComponent, setModalComponent] = useState<unknown>(null);
+const initValues = {
+  showModal: () => null,
+  closeModal: () => null,
+};
+
+export const ModalContext = createContext<modalContextProps>(initValues);
+
+const ModalProvider = ({ children }: { children: ReactNode }) => {
+  const [modalComponent, setModalComponent] = useState<ReactNode | null>(null);
+  const showModal = (content: ReactNode) => setModalComponent(content);
   const closeModal = () => setModalComponent(null);
+
   return (
-    <ModalContext.Provider value={{ setModalComponent, closeModal }}>
+    <ModalContext.Provider value={{ showModal, closeModal }}>
       {children}
       {modalComponent ? (
         <Overlay onClick={closeModal}>{modalComponent}</Overlay>

@@ -1,5 +1,11 @@
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const Overlay = ({ children, onClick }: any) => {
+import { ReactNode } from 'react';
+
+type overlayProps = {
+  children: ReactNode;
+  onClick: () => void;
+};
+
+export const Overlay = ({ children, onClick }: overlayProps) => {
   return (
     <div>
       <div onClick={onClick}></div>
