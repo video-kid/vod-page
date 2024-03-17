@@ -1,4 +1,5 @@
 import VideoGallery from '../../Modules/VideoGallery/VideoGallery';
+import { moviesMockup } from './moviesMockup';
 
 const GalleryPage = () => {
   return (
@@ -6,7 +7,7 @@ const GalleryPage = () => {
       <header>
         <h1>Gallery</h1>
       </header>
-      <VideoGallery />
+      <VideoGallery movies={moviesMockup} />
     </div>
   );
 };

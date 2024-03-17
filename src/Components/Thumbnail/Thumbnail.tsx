@@ -1,17 +1,17 @@
 import stylex from '@stylexjs/stylex';
 
 import { useContext } from 'react';
-import cover from '../../assets/pigeon.png';
+
 import { Modal } from '../Modal/Modal';
 import { ModalContext, modalContextProps } from '../../context/modalContext';
 import Video from '../Video/Video';
+import { movie } from '../../types/movie';
 
 type thumbnailProps = {
-  title: string;
-  description: string;
+  movie: movie;
 };
 
-const Thumbnail = ({ title, description }: thumbnailProps) => {
+const Thumbnail = ({ movie }: thumbnailProps) => {
   const { showModal, closeModal } = useContext<modalContextProps>(ModalContext);
   return (
     <button
@@ -19,25 +19,29 @@ const Thumbnail = ({ title, description }: thumbnailProps) => {
         showModal(
           <Modal
             closingHandler={closeModal}
-            title={title}
-            description={description}>
-            <Video />
+            title={movie.episodeTitle}
+            description={movie.description}>
+            <Video
+              videoLink={movie.movie}
+              cover={movie.cover}
+              nextEpisodeLink={movie.nextEpisodeLink}
+            />
           </Modal>
         );
       }}
       {...stylex.props(styles.thumbnail)}>
       <picture>
         <source
-          srcSet={cover}
+          srcSet={movie.cover}
           media='(orientation: portrait)'
         />
         <img
-          src={cover}
+          src={movie.cover}
           alt='pigeon'
           {...stylex.props(styles.image)}
         />
       </picture>
-      <h5>Pigeon</h5>
+      <h5>{movie.episodeTitle}</h5>
     </button>
   );
 };
