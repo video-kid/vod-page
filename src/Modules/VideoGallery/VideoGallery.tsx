@@ -1,25 +1,20 @@
 import stylex from '@stylexjs/stylex';
 
+import { movie } from '../../types/movie';
+
 import Thumbnail from '../../Components/Thumbnail/Thumbnail';
 
-const moviesMockup = [
-  { title: 'pigeon', description: 'pigeon golomp cute baby' },
-  { title: 'pigeon', description: 'pigeon golomp cute baby' },
-  { title: 'pigeon', description: 'pigeon golomp cute baby' },
-  { title: 'pigeon', description: 'pigeon golomp cute baby' },
-  { title: 'pigeon', description: 'pigeon golomp cute baby' },
-  { title: 'pigeon', description: 'pigeon golomp cute baby' },
-  { title: 'pigeon', description: 'pigeon golomp cute baby' },
-  { title: 'pigeon', description: 'pigeon golomp cute baby' },
-];
+type videoGalleryProps = {
+  movies: Array<movie>;
+};
 
-const VideoGallery = () => {
+const VideoGallery = ({ movies }: videoGalleryProps) => {
   return (
     <div {...stylex.props(styles.gallery)}>
-      {moviesMockup.map((movie) => (
+      {movies.map((movie) => (
         <Thumbnail
-          title={movie.title}
-          description={movie.description}
+          movie={movie}
+          key={`${movie.seriesTitle}:S${movie.series}E${movie.episode}`}
         />
       ))}
     </div>
