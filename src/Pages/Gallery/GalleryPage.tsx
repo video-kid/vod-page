@@ -1,4 +1,4 @@
-import VideoGallery from '../../Modules/VideoGallery/VideoGallery';
+import { VideoGallery } from '../../Modules/VideoGallery/VideoGallery';
 import { moviesMockup } from './moviesMockup';
 
 const GalleryPage = () => {

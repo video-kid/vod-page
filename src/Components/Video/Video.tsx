@@ -2,7 +2,7 @@ import stylex from '@stylexjs/stylex';
 
 import { useState } from 'react';
 
-import useStopWatch from '../../hooks/useStopWatch/useStopWatch';
+import { useStopWatch } from '../../hooks/useStopWatch/useStopWatch';
 
 type videoProps = {
   videoLink: string;
@@ -29,9 +29,6 @@ const Video = ({
 
   return (
     <div {...stylex.props(styles.videoWrapper)}>
-      {shouldCTAShow ? (
-        <button {...stylex.props(styles.videoCTA)}>Next episode</button>
-      ) : null}
       <video
         controls
         disablePictureInPicture
@@ -51,11 +48,18 @@ const Video = ({
         />
         Video cant be displayed :C
       </video>
+      {shouldCTAShow ? (
+        <a
+          href={nextEpisodeLink ?? ''}
+          {...stylex.props(styles.videoCTA)}>
+          Next episode
+        </a>
+      ) : null}
     </div>
   );
 };
 
-export default Video;
+export { Video };
 
 const styles = stylex.create({
   videoWrapper: {
@@ -69,6 +73,8 @@ const styles = stylex.create({
     position: 'absolute',
     top: '0',
     right: '0',
+    display: 'block',
+    backgroundColor: 'white',
   },
   video: {
     width: '100%',

@@ -35,4 +35,4 @@ const useStopWatch = () => {
   };
 };
 
-export default useStopWatch;
+export { useStopWatch };

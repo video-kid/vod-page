@@ -1,13 +1,16 @@
 import stylex from '@stylexjs/stylex';
-import { globalTokens as $, text } from './styles/globalTokens.stylex';
+
+import { RouterProvider } from 'react-router-dom';
 import ModalProvider from './context/modalContext';
-import { GalleryPage } from './Pages/Gallery/GalleryPage';
+
+import { globalTokens as $, text } from './styles/globalTokens.stylex';
+import { routes } from './routes';
 
 function App() {
   return (
     <ModalProvider>
       <main {...stylex.props(styles.main)}>
-        <GalleryPage />
+        <RouterProvider router={routes} />
       </main>
     </ModalProvider>
   );
