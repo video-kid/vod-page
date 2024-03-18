@@ -4,7 +4,7 @@ import { useContext } from 'react';
 
 import { Modal } from '../Modal/Modal';
 import { ModalContext, modalContextProps } from '../../context/modalContext';
-import Video from '../Video/Video';
+import { Video } from '../Video/Video';
 import { movie } from '../../types/movie';
 
 type thumbnailProps = {
@@ -24,8 +24,17 @@ const Thumbnail = ({ movie }: thumbnailProps) => {
             <Video
               videoLink={movie.movie}
               cover={movie.cover}
-              nextEpisodeLink={movie.nextEpisodeLink}
+              nextEpisodeLink={
+                movie.nextEpisodeId
+                  ? `/movie/${movie.serieId}/${movie.season}/${movie.nextEpisodeId}`
+                  : undefined
+              }
             />
+            <p>{movie.description}</p>
+            <a
+              href={`/movie/${movie.serieId}/${movie.season}/${movie.episode}`}>
+              Watch episode
+            </a>
           </Modal>
         );
       }}
@@ -46,7 +55,7 @@ const Thumbnail = ({ movie }: thumbnailProps) => {
   );
 };
 
-export default Thumbnail;
+export { Thumbnail };
 
 const styles = stylex.create({
   thumbnail: {

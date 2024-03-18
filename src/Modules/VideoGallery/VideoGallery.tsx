@@ -2,7 +2,7 @@ import stylex from '@stylexjs/stylex';
 
 import { movie } from '../../types/movie';
 
-import Thumbnail from '../../Components/Thumbnail/Thumbnail';
+import { Thumbnail } from '../../Components/Thumbnail/Thumbnail';
 
 type videoGalleryProps = {
   movies: Array<movie>;
@@ -14,14 +14,14 @@ const VideoGallery = ({ movies }: videoGalleryProps) => {
       {movies.map((movie) => (
         <Thumbnail
           movie={movie}
-          key={`${movie.seriesTitle}:S${movie.series}E${movie.episode}`}
+          key={`${movie.seriesTitle}:S${movie.season}E${movie.episode}`}
         />
       ))}
     </div>
   );
 };
 
-export default VideoGallery;
+export { VideoGallery };
 
 const styles = stylex.create({
   gallery: {
