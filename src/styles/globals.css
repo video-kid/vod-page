@@ -6,12 +6,36 @@
   }
 }
 
+@layer variables {
+  :root {
+    --font-primary: 'Encode Sans', sans-serif;
+    --font-secondary: 'Montserrat', sans-serif;
+    --bcg-color: #cbd7db;
+    --bcg-color-dark-theme: #333333;
+  }
+}
+
 @layer globals {
   html {
     font-size: 10px;
-    min-height: 100vh;
+    font-family: var(--font-primary);
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings: 'wdth' 100;
   }
   body {
     min-width: 100%;
+    background-color: var(--bcg-color);
+    @media (prefers-color-scheme: dark) {
+      background-color: var(--bcg-color-dark-theme);
+    }
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    font-family: var(--font-secondary);
   }
 }

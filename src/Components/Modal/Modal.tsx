@@ -35,9 +35,14 @@ export const Modal = ({
   );
 };
 
+const DARK_MODE = '@media (prefers-color-scheme: dark)' as const;
+
 const styles = stylex.create({
   modal: {
-    backgroundColor: 'white',
+    backgroundColor: {
+      default: '#F0F3F5',
+      [DARK_MODE]: '#4E4E56',
+    },
     borderRadius: '8px',
     padding: '20px',
     width: '70%',

@@ -18,6 +18,8 @@ export const Overlay = ({ children, onClick }: overlayProps) => {
   );
 };
 
+const DARK_MODE = '@media (prefers-color-scheme: dark)' as const;
+
 const styles = stylex.create({
   overlay: {
     position: 'fixed',
@@ -30,7 +32,10 @@ const styles = stylex.create({
     justifyContent: 'center',
   },
   background: {
-    backgroundColor: '#ffffff',
+    backgroundColor: {
+      default: '#F0F3F5',
+      [DARK_MODE]: '#4E4E56',
+    },
     opacity: 0.7,
     display: 'block',
     content: "''",
