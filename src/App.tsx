@@ -23,6 +23,7 @@ const MEDIA_MOBILE = '@media (max-width: 700px)' as const;
 
 const styles = stylex.create({
   main: {
+    minHeight: '100vh',
     margin: '0 auto',
     padding: '2em 3em',
     minWidth: $.minWidth,
@@ -31,10 +32,9 @@ const styles = stylex.create({
       default: text.p,
       [MEDIA_MOBILE]: text.sm,
     },
-    border: '1px solid black',
     backgroundColor: {
-      default: '#ffffff',
-      [DARK_MODE]: '#000000',
+      default: '#F0F3F5',
+      [DARK_MODE]: 'inherit',
     },
     color: {
       default: '#000000',
